@@ -1,0 +1,2 @@
+# ostoskeskus
+uusi ostoskeskus "Kortti"
