@@ -4,9 +4,9 @@ from .forms import CardForm
 
 
 
-def card_list(request):
+def korttilista(request):
     cards = Card.objects.all()
-    return render(request, 'card/card_list.html', {'cards': cards})
+    return render(request, 'korttisovellus/lista.html', {'kaikkikortit': cards})
 
 
 def add_card(request):
@@ -14,7 +14,7 @@ def add_card(request):
         form = CardForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('card_list')
+            return redirect('korttilista')
     else:
         form = CardForm()
     return render(request, 'card/add_card.html', {'form': form})
