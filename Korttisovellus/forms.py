@@ -1,7 +1,9 @@
 from django import forms
-from .models import Card
+from .models import Kortti
 
-class CardForm(forms.ModelForm):
+
+
+class Korttilomake(forms.ModelForm):
     class Meta:
-        model = Card
-        fields = ['otsikko', 'kuvaus']
+        model = Kortti
+        fields = '__all__'

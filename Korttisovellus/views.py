@@ -1,22 +1,22 @@
 from django.shortcuts import render, redirect
-from .models import Card
-from .forms import CardForm
+from .models import Kortti
+from .forms import Korttilomake
 
 
 
 def korttilista(request):
-    cards = Card.objects.all()
-    return render(request, 'korttisovellus/lista.html', {'kaikkikortit': cards})
+    kortit = Kortti.objects.all()
+    return render(request, 'korttisovellus/lista.html', {'kaikkikortit': kortit})
 
 
-def add_card(request):
+def uusi_kortti(request):
     if request.method == 'POST':
-        form = CardForm(request.POST)
+        form = Korttilomake(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('korttilista')
-    else:
-        form = CardForm()
-    return render(request, 'card/add_card.html', {'form': form})
+            print('Validi lomake')
+            return redirect('lista')
+    
+    return render(request, 'korttisovellus/uusikortti', {'lomake': form})
 
 

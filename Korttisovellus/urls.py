@@ -1,7 +1,7 @@
 from django.urls import path
-from .views import korttilista , add_card   
+from .views import korttilista , uusi_kortti   
 
 urlpatterns = [
     path('', korttilista, name='lista'),
-    path('add/', add_card, name='add_card'),
+    path('uusikortti', uusi_kortti, name='uusi_kortti'),
 ]
